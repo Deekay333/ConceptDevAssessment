@@ -357,7 +357,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -365,16 +365,22 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Github\ConecptDevAssessment\ConceptDevAssessment\ConceptDevelopmentAssessment
+  m_LastProjectPath: C:\Users\Computing\Documents\ConceptDevAssessment\ConceptDevelopmentAssessment
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: 82590000
     m_LastClickedID: 22914
     m_ExpandedIDs: 000000007c59000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: 74590000
+    m_LastClickedID: 22900
+    m_ExpandedIDs: 000000007459000000ca9a3bffffff7f
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -402,7 +408,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 000000007c590000
+=======
+    m_ExpandedIDs: 0000000074590000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -429,7 +439,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -542,9 +552,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
       m_SelectedIDs: c0590000
       m_LastClickedID: 0
       m_ExpandedIDs: 8ae7ffffbee9ffff50f3ffff3cf5ffffb6f9ffff0efbffff
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 08fbffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -939,7 +955,11 @@ MonoBehaviour:
   m_Size:
     m_Target: 5.277608
     speed: 2
+<<<<<<< Updated upstream
     m_Value: 5.526291
+=======
+    m_Value: 28.036547
+>>>>>>> Stashed changes
   m_Ortho:
     m_Target: 0
     speed: 2
