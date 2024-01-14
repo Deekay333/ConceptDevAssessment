@@ -79,8 +79,10 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
-    private void OnMove(InputValue movement)
+    /*private void OnMove(InputValue movement)
     {
+        Debug.Log("AAAAAAAAAAAAAAA");
+        Debug.Log(movement.Get<Vector2>().x);
         if (movement.Get<Vector2>().x == movementVector.x)
         {
             movementVector.x = movement.Get<Vector2>().x;
@@ -92,9 +94,22 @@ public class PlayerScript : MonoBehaviour
             movementVector.x = movement.Get<Vector2>().x;
             mov.x = movement.Get<Vector2>().x;
         }
-    }
+    }*/
     private void Update()
     {
+        if (Input.GetKey(KeyCode.A))
+        {
+            movementVector.x = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            movementVector.x = 1;
+        }
+        else
+        {
+            movementVector.x = 0;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && GroundCheck == false)
         {
             j = 0;

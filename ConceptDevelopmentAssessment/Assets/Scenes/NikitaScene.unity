@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bafdcffbc751f4a8f75ecd08222a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroundCheck: 1
+  GroundCheck: 0
   groundedSpeed: 6
   speed: 40
   jumpSpeed: 250
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d55d793fce4722a4e8b12a362ac8d2fb, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 9d982d109194efe48af625803c9a6078, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -585,10 +585,14 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44d1fd58-595d-48ea-b885-80951b028d08
+    m_ActionName: New action map/Move[/Keyboard/w,/Keyboard/a,/Keyboard/s,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: PlayerControls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1162779194

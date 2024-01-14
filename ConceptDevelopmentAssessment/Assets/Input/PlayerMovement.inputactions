@@ -1,0 +1,67 @@
+{
+    "name": "PlayerMovement",
+    "maps": [
+        {
+            "name": "PlayerControls",
+            "id": "a8691750-1e58-40de-a011-b5c3242e8d07",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "4990d989-bdff-4335-9fee-ff26cca395c8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9772326d-b931-4302-9535-a97beef6bea7",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5486d95-5da4-44dd-ba77-ee21a985d997",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97608d9e-3802-4cd9-b3fb-9520f9266965",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27467e69-da2f-4390-b157-1d8c6c326a24",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
