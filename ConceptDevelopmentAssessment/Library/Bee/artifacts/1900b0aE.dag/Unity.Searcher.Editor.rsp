@@ -1,6 +1,6 @@
 -target:library
--out:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.dll"
--refout:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
+-out:"Library/Bee/artifacts/1900b0aE.dag/Unity.Searcher.Editor.dll"
+-refout:"Library/Bee/artifacts/1900b0aE.dag/Unity.Searcher.Editor.ref.dll"
 -define:UNITY_2022_3_11
 -define:UNITY_2022_3
 -define:UNITY_2022
@@ -116,7 +116,6 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:UNITY_POST_PROCESSING_STACK_V2
--define:ROSLYN_ANALYZER_FIX
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
@@ -347,14 +346,16 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/ProjectGeneration/AssemblyNameProvider.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/ProjectGeneration/FileIO.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/ProjectGeneration/GUIDGenerator.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/ProjectGeneration/ProjectGeneration.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/ProjectGeneration/ProjectGenerationFlag.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/ProjectGeneration/StringUtils.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/VSCodeDiscovery.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.5/Editor/VSCodeScriptEditor.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/AssemblyInfo.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/Searcher.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherAdapter.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherControl.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherDatabase.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherDatabaseBase.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherHighlighter.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherItem.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherTreeUtility.cs"
+"Library/PackageCache/com.unity.searcher@4.9.2/Editor/Searcher/SearcherWindow.cs"
 -langversion:9.0
 
 /deterministic
@@ -373,4 +374,4 @@
 
 -warn:0
 
-/additionalfile:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.UnityAdditionalFile.txt"
+/additionalfile:"Library/Bee/artifacts/1900b0aE.dag/Unity.Searcher.Editor.UnityAdditionalFile.txt"
