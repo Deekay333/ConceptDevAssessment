@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -24,11 +25,13 @@ public class PlayerScript : MonoBehaviour
     public float gravHigh;
     private bool jump = false;
     public float direction;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -121,6 +124,14 @@ public class PlayerScript : MonoBehaviour
             i = 0;
             jump = false;
         }
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("isSwinging", true);
+        }
+        else if(!Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetBool("isSwinging", false);
+        }
         if (GroundCheck == true && j < 0.1f)
         {
             Debug.Log("Coyote");
@@ -139,6 +150,23 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, -12);
         }
+        if(rb.velocity.x > 0 || movementVector.x > 0 || rb.velocity.x < 0 || movementVector.x < 0)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        if(movementVector.x < 0)
+        {
+            transform.localScale = new Vector3(-1.06f, 1.06f, 1.06f);
+        }
+        else if(movementVector.x > 0)
+        {
+            transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
+        }
+        else if(rb.velocity.x == 0 && movementVector.x == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }
+        anim.SetFloat("verticalVelo", rb.velocity.y);
     }
     IEnumerator coyoteTime()
     {
