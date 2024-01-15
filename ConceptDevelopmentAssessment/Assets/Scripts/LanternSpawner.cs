@@ -94,7 +94,7 @@ public class LanternSpawner : MonoBehaviour
         }
     }
 
-    void SetVignetteIntensity(float intensity)
+    public void SetVignetteIntensity(float intensity)
     {
         // Modify vignette intensity using Post Processing Volume
         PostProcessVolume postProcessVolume = postProcessVolumeObject.GetComponent<PostProcessVolume>();
@@ -113,6 +113,9 @@ public class LanternSpawner : MonoBehaviour
     {
         cooldownActive = true;
         cooldownTimer = 0f;
+
+        // Set vignette intensity to its final value instantly
+        SetVignetteIntensity(finalVignetteIntensity);
     }
 
     public void ResetTimerAndVignette()
@@ -124,5 +127,15 @@ public class LanternSpawner : MonoBehaviour
 
         // Reset vignette intensity
         SetVignetteIntensity(initialVignetteIntensity);
+    }
+
+    //DOESNT WORK Set vignette to 1 if in water
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            // Reset vignette intensity
+            SetVignetteIntensity(finalVignetteIntensity);
+        }
     }
 }

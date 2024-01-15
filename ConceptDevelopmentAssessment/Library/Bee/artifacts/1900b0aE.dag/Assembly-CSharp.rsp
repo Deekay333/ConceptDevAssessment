@@ -377,6 +377,7 @@
 "Assets/Scripts/LanternCollector.cs"
 "Assets/Scripts/LanternSpawner.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/Water Level.cs"
 -langversion:9.0
 
 /deterministic
