@@ -1011,6 +1011,7 @@ MonoBehaviour:
   spawnChance: 0.7
   postProcessVolumeObject: {fileID: 741189250}
   initialVignetteIntensity: 0.212
+  currentVignetteIntensity: 0
   finalVignetteIntensity: 1
   timerDuration: 120
 --- !u!4 &207978253
@@ -2764,7 +2765,7 @@ Transform:
   m_GameObject: {fileID: 902794415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2527, y: 0.5055, z: 0}
+  m_LocalPosition: {x: -0.56, y: -0.45, z: 0}
   m_LocalScale: {x: 1.5055, y: 1.5055, z: 1.5055}
   m_ConstrainProportionsScale: 0
   m_Children: []
