@@ -14,16 +14,26 @@ public class LanternSpawner : MonoBehaviour
     [Header("Vignette Settings")]
     public GameObject postProcessVolumeObject; // Reference to the GameObject with PostProcessVolume component
     public float initialVignetteIntensity = 0.212f;
+    public float currentVignetteIntensity;
     public float finalVignetteIntensity = 1f;
     public float timerDuration = 120f; // 2 minutes in seconds
 
     private float timer;
     private bool timerStarted = false;
 
+    private LanternSpawner lanternSpawner; // Reference to the LanternSpawner script
+
     void Start()
     {
         SpawnLantern();
         StartTimer();
+
+        // Find the LanternSpawner script in the scene
+        lanternSpawner = FindObjectOfType<LanternSpawner>();
+        if (lanternSpawner == null)
+        {
+            Debug.LogError("LanternSpawner script not found in the scene!");
+        }
     }
 
     void SpawnLantern()
@@ -66,6 +76,9 @@ public class LanternSpawner : MonoBehaviour
 
             // Set the vignette intensity
             SetVignetteIntensity(vignetteIntensity);
+
+            // Update currentVignetteIntensity
+            currentVignetteIntensity = vignetteIntensity;
 
             // Check if the timer has reached its duration
             if (timer >= timerDuration)

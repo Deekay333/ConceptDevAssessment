@@ -60,9 +60,6 @@ public class WaterLevel : MonoBehaviour
             // Initialize player in water
             playerInWater = true;
             playerTimer = 0f;
-
-            // Set vignette intensity to 1 when player enters the water
-            lanternSpawner?.SetVignetteIntensity(1f);
         }
     }
 
@@ -74,6 +71,8 @@ public class WaterLevel : MonoBehaviour
             // Reset player in water state
             playerInWater = false;
             playerTimer = 0f;
+
+
         }
     }
 
