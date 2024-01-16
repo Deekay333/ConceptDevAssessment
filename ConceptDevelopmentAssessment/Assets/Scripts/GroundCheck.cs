@@ -19,7 +19,6 @@ public class GroundCheck : MonoBehaviour
     void Update()
     {
         direction = Player.GetComponent<PlayerScript>().direction;
-        Debug.Log(direction);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

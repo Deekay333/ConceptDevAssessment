@@ -26,17 +26,25 @@ public class PlayerScript : MonoBehaviour
     private bool jump = false;
     public float direction;
     private Animator anim;
+    public float time;
+    private bool swung;
+    private GameObject pickaxe;
+    private CapsuleCollider2D pickaxeCollider;
+    public float coal;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        pickaxe = GameObject.Find("Pickaxe");
+        pickaxeCollider = pickaxe.GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log("Coal: " + coal);
         direction = movementVector.x;
         i += Time.fixedDeltaTime;
         j += Time.fixedDeltaTime;
@@ -80,7 +88,22 @@ public class PlayerScript : MonoBehaviour
             rb.MovePosition(rb.position + new Vector2(movementVector.x, 0) * groundedSpeed * Time.fixedDeltaTime);
             rb.velocity = new Vector2(0, 0);
         }
-
+        if (pickaxeCollider.enabled == true)
+        {
+            pickaxeCollider.enabled = false;
+        }
+        if (Input.GetKey(KeyCode.Mouse0) && time <= 0)
+        {
+            if (time > -0.5f)
+            {
+                pickaxeCollider.enabled = true;
+                time = 0.4f;
+            }
+            else
+            {
+                time = 0.15f;
+            }
+        }
     }
     /*private void OnMove(InputValue movement)
     {
@@ -100,6 +123,8 @@ public class PlayerScript : MonoBehaviour
     }*/
     private void Update()
     {
+        time -= Time.deltaTime;
+
         if (Input.GetKey(KeyCode.A))
         {
             movementVector.x = -1;
@@ -117,7 +142,7 @@ public class PlayerScript : MonoBehaviour
         {
             j = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && GroundCheck == true || jump == true)
+        if ((Input.GetKeyDown(KeyCode.Space) && GroundCheck == true || jump == true) && anim.GetBool("isSwinging") == false)
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(movementVector.x * jumpSpeed, jumpHeight));
@@ -127,6 +152,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             anim.SetBool("isSwinging", true);
+            movementVector.x = 0;
         }
         else if(!Input.GetKeyDown(KeyCode.Mouse0))
         {
