@@ -15,14 +15,10 @@ public class LanternSpawner : MonoBehaviour
     public GameObject postProcessVolumeObject; // Reference to the GameObject with PostProcessVolume component
     public float initialVignetteIntensity = 0.212f;
     public float finalVignetteIntensity = 1f;
-
-    [Header("Timer Settings")]
     public float timerDuration = 120f; // 2 minutes in seconds
+
     private float timer;
     private bool timerStarted = false;
-    private bool cooldownActive = false;
-    public float cooldownDuration = 3f; // 3 seconds cooldown
-    private float cooldownTimer = 0f;
 
     void Start()
     {
@@ -58,38 +54,24 @@ public class LanternSpawner : MonoBehaviour
 
     void Update()
     {
-        if (timerStarted && !cooldownActive)
+        if (timerStarted)
         {
             timer += Time.deltaTime;
 
+            // Calculate the percentage of time elapsed
             float progress = Mathf.Clamp01(timer / timerDuration);
+
+            // Interpolate the vignette intensity based on the time progress
             float vignetteIntensity = Mathf.Lerp(initialVignetteIntensity, finalVignetteIntensity, progress);
+
+            // Set the vignette intensity
             SetVignetteIntensity(vignetteIntensity);
 
+            // Check if the timer has reached its duration
             if (timer >= timerDuration)
             {
-                StartCooldown();
+                timerStarted = false;
                 Debug.Log("Timer finished!");
-            }
-        }
-
-        // Check if cooldown is active
-        if (cooldownActive)
-        {
-            cooldownTimer += Time.deltaTime;
-
-            if (cooldownTimer <= cooldownDuration)
-            {
-                // Calculate progress during cooldown
-                float cooldownProgress = Mathf.Clamp01(cooldownTimer / cooldownDuration);
-
-                // Interpolate vignette intensity during cooldown
-                float vignetteIntensity = Mathf.Lerp(finalVignetteIntensity, initialVignetteIntensity, cooldownProgress);
-                SetVignetteIntensity(vignetteIntensity);
-            }
-            else
-            {
-                ResetTimerAndVignette();
             }
         }
     }
@@ -106,36 +88,6 @@ public class LanternSpawner : MonoBehaviour
             {
                 vignetteLayer.intensity.value = intensity;
             }
-        }
-    }
-
-    public void StartCooldown()
-    {
-        cooldownActive = true;
-        cooldownTimer = 0f;
-
-        // Set vignette intensity to its final value instantly
-        SetVignetteIntensity(finalVignetteIntensity);
-    }
-
-    public void ResetTimerAndVignette()
-    {
-        timer = 0f;
-        timerStarted = true;
-        cooldownActive = false;
-        cooldownTimer = 0f;
-
-        // Reset vignette intensity
-        SetVignetteIntensity(initialVignetteIntensity);
-    }
-
-    //DOESNT WORK Set vignette to 1 if in water
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            // Reset vignette intensity
-            SetVignetteIntensity(finalVignetteIntensity);
         }
     }
 }

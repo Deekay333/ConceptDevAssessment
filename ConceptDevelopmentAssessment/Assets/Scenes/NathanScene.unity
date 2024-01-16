@@ -1013,7 +1013,6 @@ MonoBehaviour:
   initialVignetteIntensity: 0.212
   finalVignetteIntensity: 1
   timerDuration: 120
-  cooldownDuration: 3
 --- !u!4 &207978253
 Transform:
   m_ObjectHideFlags: 0
@@ -4186,7 +4185,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1357882680}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0

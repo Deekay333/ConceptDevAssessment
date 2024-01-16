@@ -43,9 +43,6 @@ public class LanternCollector : MonoBehaviour
         {
             // Destroy the collected Lantern object
             Destroy(gameObject);
-
-            // Restart the timer and vignette effects
-            spawner.ResetTimerAndVignette();
         }
     }
 }
