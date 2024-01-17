@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D rb;
+
+    [Header("Movement")]
     public bool GroundCheck;
     private float movX;
     private float movY;
@@ -15,6 +17,11 @@ public class PlayerScript : MonoBehaviour
     private Vector2 movementVector;
     private Vector2 mov;
     public float speed;
+
+    [Header("Jumping")]
+    //public float jumpSpeed;
+    //public float jumpHeight;
+
     public float jumpSpeed;
     public float jumpHeight;
     private float i;
@@ -33,6 +40,12 @@ public class PlayerScript : MonoBehaviour
     public float coal;
     public float iron;
     public GameObject text;
+
+    [Header("Crouching")]
+
+    private Transform bodyTransform;
+    private BoxCollider2D bodyCollider;
+    private Vector2 originalColliderSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +54,12 @@ public class PlayerScript : MonoBehaviour
         anim = GetComponent<Animator>();
         pickaxe = GameObject.Find("Pickaxe");
         pickaxeCollider = pickaxe.GetComponent<CapsuleCollider2D>();
+
+        // Assuming the "Body" object is a direct child of the player object
+        bodyTransform = transform.Find("Body");
+        bodyCollider = bodyTransform.GetComponent<BoxCollider2D>();
+
+        originalColliderSize = bodyCollider.size;
     }
 
     // Update is called once per frame
@@ -149,11 +168,11 @@ public class PlayerScript : MonoBehaviour
             movementVector.x = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && GroundCheck == false)
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) >= 0.01f)
         {
             j = 0;
         }
-        if ((Input.GetKeyDown(KeyCode.Space) && GroundCheck == true || jump == true) && anim.GetBool("isSwinging") == false)
+        if ((Input.GetKeyDown(KeyCode.Space) && (Mathf.Abs(rb.velocity.y) < 0.01f) || jump == true) && anim.GetBool("isSwinging") == false)
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(movementVector.x * jumpSpeed, jumpHeight));
@@ -175,11 +194,11 @@ public class PlayerScript : MonoBehaviour
             j = 0.2f;
             StartCoroutine(coyoteTime());
         }
-        if (Input.GetKey(KeyCode.Space) == true && GroundCheck == false)
+        if (Input.GetKey(KeyCode.Space) == true && (Mathf.Abs(rb.velocity.y) > 0.01f))
         {
             rb.gravityScale = gravLow;
         }
-        else if (Input.GetKey(KeyCode.Space) == false && GroundCheck == false)
+        else if (Input.GetKey(KeyCode.Space) == false && (Mathf.Abs(rb.velocity.y) > 0.01f))
         {
             rb.gravityScale = gravHigh;
         }
@@ -202,6 +221,14 @@ public class PlayerScript : MonoBehaviour
         else if(rb.velocity.x == 0 && movementVector.x == 0)
         {
             anim.SetBool("isRunning", false);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            bodyCollider.size = new Vector2(originalColliderSize.x, 0.5f * originalColliderSize.y);
+        }
+        else
+        {
+            bodyCollider.size = originalColliderSize;
         }
         anim.SetFloat("verticalVelo", rb.velocity.y);
     }

@@ -70,7 +70,7 @@ public class MainMenu : MonoBehaviour
             animation.SetActive(true);
             looped = true;
         }
-        if(t >= 10.1 && loaded == false)
+        if(t >= 10.2 && loaded == false)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             loaded = true;

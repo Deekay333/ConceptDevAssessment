@@ -968,10 +968,15 @@ MonoBehaviour:
   GroundCheck: 0
   groundedSpeed: 6
   speed: 80
-  jumpForce: 25
+  jumpSpeed: 0
+  jumpHeight: 0
   gravLow: 3.5
   gravHigh: 8
   direction: 0
+  time: 0
+  coal: 0
+  iron: 0
+  text: {fileID: 0}
 --- !u!1 &186873056
 GameObject:
   m_ObjectHideFlags: 0
@@ -8196,6 +8201,7 @@ GameObject:
   - component: {fileID: 1357882678}
   - component: {fileID: 1357882681}
   - component: {fileID: 1357882682}
+  - component: {fileID: 1357882683}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8284,7 +8290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357882677}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 836c08c6b499b3e4e82f2731bcfe3d50, type: 3}
   m_Name: 
@@ -8352,6 +8358,20 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1357882683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357882677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152e11a11df6e7c48bb4742b13331c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionChange: 0
+  velo: 5
 --- !u!1 &1382142390
 GameObject:
   m_ObjectHideFlags: 0
