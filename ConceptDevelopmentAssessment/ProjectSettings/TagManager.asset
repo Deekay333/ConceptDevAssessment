@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lantern
   - Water
+  - Spike
   layers:
   - Default
   - TransparentFX
