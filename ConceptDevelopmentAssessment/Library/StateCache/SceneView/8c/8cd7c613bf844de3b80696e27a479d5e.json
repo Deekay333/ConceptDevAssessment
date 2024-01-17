@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":-4.361061096191406,"y":40.55083465576172,"z":5.1743974685668949},"rotation":{"x":-0.14022526144981385,"y":0.0004914253368042409,"z":0.0000682673417031765,"w":0.9901111721992493},"size":46.98351287841797,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":true,"pivot":{"x":-30.545793533325197,"y":28.86980438232422,"z":-2.029573440551758},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":36.562191009521487,"orthographic":true}
+>>>>>>> parent of eff7e26d (Changing Lanterns)
