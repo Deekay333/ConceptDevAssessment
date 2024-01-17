@@ -1,5 +1,6 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
 <<<<<<< HEAD
+<<<<<<< HEAD
 ,{ "pid":12345, "tid":0, "ts":1705509260255334, "dur":1636, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1705509260256980, "dur":532, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1705509260257659, "dur":375, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
@@ -2106,6 +2107,8 @@
 ,{ "pid":12345, "tid":16, "ts":1705509260455998, "dur":61, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1705509260461426, "dur":5903, "ph":"X", "name": "ProfilerWriteOutput" }
 =======
+=======
+>>>>>>> parent of eff7e26d (Changing Lanterns)
 ,{ "pid":12345, "tid":0, "ts":1705506988968971, "dur":1858, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1705506988970837, "dur":526, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1705506988971506, "dur":365, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
@@ -4150,5 +4153,8 @@
 ,{ "pid":12345, "tid":16, "ts":1705506989137949, "dur":390, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":16, "ts":1705506989138390, "dur":154760, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1705506989299335, "dur":5753, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< HEAD
+>>>>>>> parent of eff7e26d (Changing Lanterns)
+=======
 >>>>>>> parent of eff7e26d (Changing Lanterns)
 ,
