@@ -8,7 +8,7 @@ public class LanternCollector : MonoBehaviour
     void Start()
     {
         // Enable trigger detection
-        GetComponent<Collider>().isTrigger = true;
+        GetComponent<BoxCollider>().isTrigger = true;
     }
 
     public void SetSpawner(LanternSpawner lanternSpawner)
