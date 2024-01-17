@@ -8,7 +8,7 @@ public class GroundCheck : MonoBehaviour
     public GameObject Player;
     Vector2 velocity;
     public float direction;
-    private string tag;
+    private new string tag;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
