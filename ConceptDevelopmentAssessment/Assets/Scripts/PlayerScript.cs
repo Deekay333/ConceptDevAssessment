@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D rb;
+    [Header("Movement")]
     public bool GroundCheck;
     private float movX;
     private float movY;
@@ -15,23 +16,36 @@ public class PlayerScript : MonoBehaviour
     private Vector2 movementVector;
     private Vector2 mov;
     public float speed;
-    public float jumpSpeed;
-    public float jumpHeight;
+
+    [Header("Jumping")]
+    //public float jumpSpeed;
+    //public float jumpHeight;
+    public float jumpForce = 10f;
     private float i;
     private float j = 1;
     private float timer;
     private BoxCollider2D Collider;
     public float gravLow;
     public float gravHigh;
-    private bool jump = false;
     public float direction;
     private Animator anim;
+
+    [Header("Crouching")]
+    private Transform bodyTransform;
+    private BoxCollider2D bodyCollider;
+    private Vector2 originalColliderSize;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Collider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+
+        // Assuming the "Body" object is a direct child of the player object
+        bodyTransform = transform.Find("Body");
+        bodyCollider = bodyTransform.GetComponent<BoxCollider2D>();
+
+        originalColliderSize = bodyCollider.size;
     }
 
     // Update is called once per frame
@@ -100,6 +114,35 @@ public class PlayerScript : MonoBehaviour
     }*/
     private void Update()
     {
+        HandleMovementInput();
+        HandleJumpInput();
+        HandleCrouchInput();
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("isSwinging", true);
+        }
+        else if (!Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetBool("isSwinging", false);
+        }
+        if (GroundCheck == true && j < 0.1f)
+        {
+            Debug.Log("Coyote");
+            j = 0.2f;
+            StartCoroutine(coyoteTime());
+        }
+        
+       
+    }
+    IEnumerator coyoteTime()
+    {
+        yield return new WaitForSeconds(0.02f);
+        rb.velocity = (new Vector2(0, 0));
+    }
+
+    private void HandleMovementInput()
+    {
         if (Input.GetKey(KeyCode.A))
         {
             movementVector.x = -1;
@@ -113,31 +156,39 @@ public class PlayerScript : MonoBehaviour
             movementVector.x = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && GroundCheck == false)
+        if (rb.velocity.y < -12)
         {
-            j = 0;
+            rb.velocity = new Vector2(rb.velocity.x, -12);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && GroundCheck == true || jump == true)
+        if (rb.velocity.x > 0 || movementVector.x > 0 || rb.velocity.x < 0 || movementVector.x < 0)
         {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(new Vector2(movementVector.x * jumpSpeed, jumpHeight));
-            i = 0;
-            jump = false;
+            anim.SetBool("isRunning", true);
         }
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (movementVector.x < 0)
         {
-            anim.SetBool("isSwinging", true);
+            transform.localScale = new Vector3(-1.06f, 1.06f, 1.06f);
         }
-        else if(!Input.GetKeyDown(KeyCode.Mouse0))
+        else if (movementVector.x > 0)
         {
-            anim.SetBool("isSwinging", false);
+            transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
         }
-        if (GroundCheck == true && j < 0.1f)
+        else if (rb.velocity.x == 0 && movementVector.x == 0)
         {
-            Debug.Log("Coyote");
-            j = 0.2f;
-            StartCoroutine(coyoteTime());
+            anim.SetBool("isRunning", false);
         }
+        anim.SetFloat("verticalVelo", rb.velocity.y);
+    }
+
+    private void HandleJumpInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Mathf.Abs(rb.velocity.y) < 0.01f) // Check if the player is grounded
+            {
+                rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            }
+        }
+
         if (Input.GetKey(KeyCode.Space) == true && GroundCheck == false)
         {
             rb.gravityScale = gravLow;
@@ -146,32 +197,17 @@ public class PlayerScript : MonoBehaviour
         {
             rb.gravityScale = gravHigh;
         }
-        if (rb.velocity.y < -12)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -12);
-        }
-        if(rb.velocity.x > 0 || movementVector.x > 0 || rb.velocity.x < 0 || movementVector.x < 0)
-        {
-            anim.SetBool("isRunning", true);
-        }
-        if(movementVector.x < 0)
-        {
-            transform.localScale = new Vector3(-1.06f, 1.06f, 1.06f);
-        }
-        else if(movementVector.x > 0)
-        {
-            transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
-        }
-        else if(rb.velocity.x == 0 && movementVector.x == 0)
-        {
-            anim.SetBool("isRunning", false);
-        }
-        anim.SetFloat("verticalVelo", rb.velocity.y);
     }
-    IEnumerator coyoteTime()
+
+    private void HandleCrouchInput()
     {
-        yield return new WaitForSeconds(0.02f);
-        rb.velocity = (new Vector2(0, 0));
-        jump = true;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            bodyCollider.size = new Vector2(originalColliderSize.x, 0.5f * originalColliderSize.y);
+        }
+        else
+        {
+            bodyCollider.size = originalColliderSize;
+        }
     }
 }
