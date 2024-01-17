@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2394102744149859699}
   m_Layer: 0
   m_Name: Coal
-  m_TagString: Untagged
+  m_TagString: Coal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   coalFragment: {fileID: 3376417779251304465, guid: b3c8856c205343c46bff40aa5a85e82b, type: 3}
+  player: {fileID: 0}
 --- !u!58 &2394102744149859699
 CircleCollider2D:
   m_ObjectHideFlags: 0

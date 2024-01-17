@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
-
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour
     private GameObject pickaxe;
     private CapsuleCollider2D pickaxeCollider;
     public float coal;
+    public float iron;
+    public GameObject text;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,10 +46,19 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log("Coal: " + coal);
+        coal = coal * 100;
+        iron = iron * 100;
+        coal = Mathf.Round(coal);
+        iron = Mathf.Round(iron);
+        coal = coal / 100;
+        iron = iron / 100;
         direction = movementVector.x;
         i += Time.fixedDeltaTime;
         j += Time.fixedDeltaTime;
+        if(iron == 3)
+        {
+            text.SetActive(true);
+        }
         if (GroundCheck == false)
         {
             if ((movementVector.x >= 0 && rb.velocity.x >= -6) || (movementVector.x <= 0 && rb.velocity.x < 6))

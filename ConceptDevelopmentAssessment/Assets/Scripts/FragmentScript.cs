@@ -26,7 +26,14 @@ public class FragmentScript : MonoBehaviour
     {
         if(collision.transform.tag == "Player")
         {
-            collision.transform.GetComponent<PlayerScript>().coal += 0.05f;
+            if(gameObject.tag == "Iron")
+            {
+                collision.transform.GetComponent<PlayerScript>().iron += 0.05f;
+            }
+            else
+            {
+                collision.transform.GetComponent<PlayerScript>().coal += 0.05f;
+            }
             Destroy(gameObject);
         }
     }

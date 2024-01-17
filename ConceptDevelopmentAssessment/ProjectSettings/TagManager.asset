@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickaxe
+  - Coal
+  - Iron
+  - Upgrade
   layers:
   - Default
   - TransparentFX
