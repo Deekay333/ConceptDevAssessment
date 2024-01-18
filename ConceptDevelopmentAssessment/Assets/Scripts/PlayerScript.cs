@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour
     private CapsuleCollider2D pickaxeCollider;
     public float coal;
     public float iron;
-    public GameObject text;
+    public GameObject ironText;
     public bool hit;
 
     [Header("Crouching")]
@@ -49,6 +49,9 @@ public class PlayerScript : MonoBehaviour
     private Transform bodyTransform;
     private BoxCollider2D bodyCollider;
     private Vector2 originalColliderSize;
+
+    public TMP_Text healthText; // Reference to the Text Mesh Pro UI Text element
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,8 @@ public class PlayerScript : MonoBehaviour
         bodyCollider = bodyTransform.GetComponent<BoxCollider2D>();
 
         originalColliderSize = bodyCollider.size;
+
+        UpdateHealthText();
     }
 
     // Update is called once per frame
@@ -80,7 +85,7 @@ public class PlayerScript : MonoBehaviour
         j += Time.fixedDeltaTime;
         if(iron == 3)
         {
-            text.SetActive(true);
+            ironText.SetActive(true);
         }
         if (GroundCheck == false)
         {
@@ -262,5 +267,14 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
         rb.velocity = (new Vector2(0, 0));
         jump = true;
+    }
+
+    void UpdateHealthText()
+    {
+        // Update the Text Mesh Pro UI Text element with the current score
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + health;
+        }
     }
 }
