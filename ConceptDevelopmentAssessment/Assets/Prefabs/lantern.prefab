@@ -43,7 +43,7 @@ Light:
   serializedVersion: 10
   m_Type: 3
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6136371, b: 0.30817604, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -179,50 +179,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0df623609cb36f40ba398bc3e498d70, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1859745324109757975}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0df623609cb36f40ba398bc3e498d70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 421764741862821268}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0df623609cb36f40ba398bc3e498d70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3987812754545373764}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0df623609cb36f40ba398bc3e498d70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7092722569988155776}
+      addedObject: {fileID: 5744257863143704175}
   m_SourcePrefab: {fileID: 100100000, guid: b0df623609cb36f40ba398bc3e498d70, type: 3}
 --- !u!1 &8598218457345632220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b0df623609cb36f40ba398bc3e498d70, type: 3}
   m_PrefabInstance: {fileID: 8904298093265427085}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1859745324109757975
-BoxCollider:
+--- !u!61 &5744257863143704175
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8598218457345632220}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.24, y: 5, z: 2.24}
-  m_Center: {x: 0.09, y: -2.5, z: 0}
---- !u!65 &421764741862821268
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8598218457345632220}
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -231,47 +203,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.66, y: 10.12, z: 2.24}
-  m_Center: {x: 0.09, y: -5.07, z: 0}
---- !u!136 &3987812754545373764
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8598218457345632220}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -4.57}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 3.21
-  m_Height: 10.4
-  m_Direction: 1
-  m_Center: {x: 0, y: -5.16, z: 0}
---- !u!114 &7092722569988155776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8598218457345632220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1c6889c986911a4e8eb6be0797557cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 4.16, y: 9.19}
+  m_EdgeRadius: 0
 --- !u!4 &8942128563880688998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b0df623609cb36f40ba398bc3e498d70, type: 3}

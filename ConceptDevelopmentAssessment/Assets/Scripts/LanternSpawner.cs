@@ -103,4 +103,10 @@ public class LanternSpawner : MonoBehaviour
             }
         }
     }
+
+    public void ResetTimer()
+    {
+        timer = 0f;
+        timerStarted = true;
+    }
 }

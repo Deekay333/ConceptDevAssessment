@@ -7,7 +7,18 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Character")]
+    public GameObject ironText;
     private Rigidbody2D rb;
+    private BoxCollider2D Collider;
+    public float direction;
+    private Animator anim;
+    public float time;
+    private bool swung;
+    private GameObject pickaxe;
+    private CapsuleCollider2D pickaxeCollider;
+    public float coal;
+    public float iron;
 
     [Header("Movement")]
     public bool GroundCheck;
@@ -21,31 +32,22 @@ public class PlayerScript : MonoBehaviour
     [Header("Jumping")]
     //public float jumpSpeed;
     //public float jumpHeight;
-
     public float jumpSpeed;
     public float jumpHeight;
     private float i;
     private float j = 1;
     private float timer;
-    private BoxCollider2D Collider;
     public float gravLow;
     public float gravHigh;
     private bool jump = false;
-    public float direction;
-    private Animator anim;
-    public float time;
-    private bool swung;
-    private GameObject pickaxe;
-    private CapsuleCollider2D pickaxeCollider;
-    public float coal;
-    public float iron;
-    public GameObject text;
+    
+    
 
     [Header("Crouching")]
-
     private Transform bodyTransform;
     private BoxCollider2D bodyCollider;
     private Vector2 originalColliderSize;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +78,7 @@ public class PlayerScript : MonoBehaviour
         j += Time.fixedDeltaTime;
         if(iron == 3)
         {
-            text.SetActive(true);
+            ironText.SetActive(true);
         }
         if (GroundCheck == false)
         {

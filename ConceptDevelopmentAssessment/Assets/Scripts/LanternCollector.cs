@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class LanternCollector : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class LanternCollector : MonoBehaviour
     void Start()
     {
         // Enable trigger detection
-        GetComponent<BoxCollider>().isTrigger = true;
+        GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     public void SetSpawner(LanternSpawner lanternSpawner)
@@ -16,7 +17,7 @@ public class LanternCollector : MonoBehaviour
         spawner = lanternSpawner;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collided object is the player (you may need to adjust the condition based on your game)
         if (other.CompareTag("Player"))
@@ -26,7 +27,7 @@ public class LanternCollector : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
         // Check if the collided object is the player (you may need to adjust the condition based on your game)
         if (other.CompareTag("Player"))
@@ -41,8 +42,14 @@ public class LanternCollector : MonoBehaviour
         // Check if the player presses the "E" key and can collect the lantern
         if (canCollect && Input.GetKeyDown(KeyCode.E))
         {
-            // Destroy the collected Lantern object
-            Destroy(gameObject);
+            // Access the LanternSpawner script and reset the timer
+            if (spawner != null)
+            {
+                spawner.ResetTimer();
+
+                // Destroy the collected Lantern object
+                Destroy(gameObject);
+            }
         }
     }
 }
