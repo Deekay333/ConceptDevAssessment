@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Player")]
     private Rigidbody2D rb;
 
     [Header("Movement")]
@@ -39,10 +40,8 @@ public class PlayerScript : MonoBehaviour
     private CapsuleCollider2D pickaxeCollider;
     public float coal;
     public float iron;
-    public GameObject text;
 
     [Header("Crouching")]
-
     private Transform bodyTransform;
     private BoxCollider2D bodyCollider;
     private Vector2 originalColliderSize;
@@ -74,10 +73,7 @@ public class PlayerScript : MonoBehaviour
         direction = movementVector.x;
         i += Time.fixedDeltaTime;
         j += Time.fixedDeltaTime;
-        if(iron == 3)
-        {
-            text.SetActive(true);
-        }
+
         if (GroundCheck == false)
         {
             if ((movementVector.x >= 0 && rb.velocity.x >= -6) || (movementVector.x <= 0 && rb.velocity.x < 6))

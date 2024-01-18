@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine;
+using TMPro;
 
 public class LanternSpawner : MonoBehaviour
 {

@@ -23,16 +23,6 @@ public class CoalSpawner : MonoBehaviour
         UpdateScoreText();
     }
 
-    //void Update()
-    //{
-    //    // For testing purposes, this adds a function to spawn Coal when a key is pressed.
-    //    // Can be replaced with actual game logic
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        SpawnCoal();
-    //    }
-    //}
-
     void SpawnCoal()
     {
         foreach (Transform spawnPoint in spawnPoints)
@@ -61,7 +51,7 @@ public class CoalSpawner : MonoBehaviour
         // Update the Text Mesh Pro UI Text element to display the new score
         UpdateScoreText();
 
-        Debug.Log("Coal collected! Score: " + playerScore);
+        Debug.Log("Coal collected! Coal: " + playerScore);
     }
 
     void UpdateScoreText()
@@ -69,7 +59,7 @@ public class CoalSpawner : MonoBehaviour
         // Update the Text Mesh Pro UI Text element with the current score
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + playerScore;
+            scoreText.text = "Coal: " + playerScore;
         }
     }
 }
