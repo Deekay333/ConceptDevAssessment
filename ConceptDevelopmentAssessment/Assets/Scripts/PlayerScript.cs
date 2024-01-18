@@ -20,9 +20,6 @@ public class PlayerScript : MonoBehaviour
     public float speed;
 
     [Header("Jumping")]
-    //public float jumpSpeed;
-    //public float jumpHeight;
-
     public float jumpSpeed;
     public float jumpHeight;
     private float i;
@@ -36,7 +33,6 @@ public class PlayerScript : MonoBehaviour
     private Animator anim;
     public float time;
     public float time2;
-    private bool swung;
     private GameObject pickaxe;
     private CapsuleCollider2D pickaxeCollider;
     public float coal;
@@ -45,10 +41,13 @@ public class PlayerScript : MonoBehaviour
     public bool hit;
 
     [Header("Crouching")]
-
     private Transform bodyTransform;
     private BoxCollider2D bodyCollider;
     private Vector2 originalColliderSize;
+
+    [Header("Audio")]
+    public AudioSource swwingingSound;
+    public AudioSource rockFall;
     // Start is called before the first frame update
     void Start()
     {
@@ -135,6 +134,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
+                swwingingSound.Play();
                 time = 0.15f;
             }
         }
@@ -163,6 +163,7 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("isDamaged", true);
             hit = false;
             time2 = 0.4f;
+            rockFall.Play();
         }
         else if(hit && health <= 1)
         {
