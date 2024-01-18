@@ -427,6 +427,7 @@
 "Assets/Scripts/LanternCollector.cs"
 "Assets/Scripts/LanternSpawner.cs"
 "Assets/Scripts/MainMenu.cs"
+"Assets/Scripts/OutroTrigger.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/PlayerScript.cs"
 "Assets/Scripts/ResourceScript.cs"
