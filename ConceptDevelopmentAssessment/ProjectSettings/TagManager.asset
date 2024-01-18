@@ -8,6 +8,11 @@ TagManager:
   - Coal
   - Iron
   - Upgrade
+  - Water
+  - Lantern
+  - Spike
+  - Nose
+  - GameOver
   layers:
   - Default
   - TransparentFX

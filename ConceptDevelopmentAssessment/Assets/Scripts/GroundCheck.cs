@@ -32,7 +32,6 @@ public class GroundCheck : MonoBehaviour
     }
     private void OnTriggerExit2D()
     {
-        Debug.Log(tag);
         Grounded = false;
         Player.GetComponent<PlayerScript>().GroundCheck = Grounded;
         if (direction != 0)

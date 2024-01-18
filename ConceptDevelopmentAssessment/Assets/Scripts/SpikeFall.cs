@@ -10,12 +10,13 @@ public class SpikeFall : MonoBehaviour
     BoxCollider2D boxCollider2D;
     public float distance;
     bool isFalling = false;
+    PlayerScript playerScript;
 
     private void Start()
     {
+        playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerScript>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-
     }
 
     private void Update()
@@ -40,6 +41,7 @@ public class SpikeFall : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            playerScript.hit = true;
             Destroy(gameObject);
         }
         else

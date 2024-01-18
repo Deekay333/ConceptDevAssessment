@@ -8,7 +8,8 @@ using UnityEngine.UIElements;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D rb;
-
+    public int health = 3;
+    private GameManager gameManager;
     [Header("Movement")]
     public bool GroundCheck;
     private float movX;
@@ -34,12 +35,14 @@ public class PlayerScript : MonoBehaviour
     public float direction;
     private Animator anim;
     public float time;
+    public float time2;
     private bool swung;
     private GameObject pickaxe;
     private CapsuleCollider2D pickaxeCollider;
     public float coal;
     public float iron;
     public GameObject text;
+    public bool hit;
 
     [Header("Crouching")]
 
@@ -54,6 +57,7 @@ public class PlayerScript : MonoBehaviour
         anim = GetComponent<Animator>();
         pickaxe = GameObject.Find("Pickaxe");
         pickaxeCollider = pickaxe.GetComponent<CapsuleCollider2D>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // Assuming the "Body" object is a direct child of the player object
         bodyTransform = transform.Find("Body");
@@ -153,8 +157,27 @@ public class PlayerScript : MonoBehaviour
     }*/
     private void Update()
     {
+        if(hit && health > 1)
+        {
+            health--;
+            anim.SetBool("isDamaged", true);
+            hit = false;
+            time2 = 0.4f;
+        }
+        else if(hit && health <= 1)
+        {
+            health--;
+            anim.SetBool("isDead", true);
+            anim.SetBool("isDamaged", true);
+            gameManager.EndGame();
+            this.GetComponent<PlayerScript>().enabled = false;
+        }
+        else if(time2 <= 0)
+        {
+            anim.SetBool("isDamaged", false);
+        }
         time -= Time.deltaTime;
-
+        time2 -= Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
         {
             movementVector.x = -1;
