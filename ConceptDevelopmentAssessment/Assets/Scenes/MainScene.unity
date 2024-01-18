@@ -9163,8 +9163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e099b4c0f9562df499eb24254f7921df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startY: -200
-  endY: -78
+  startY: -190
+  endY: -79
   totalTime: 120
 --- !u!4 &1144646695
 Transform:
@@ -9175,7 +9175,7 @@ Transform:
   m_GameObject: {fileID: 1144646692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -254.08, z: 0}
+  m_LocalPosition: {x: 0, y: -190, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11085,13 +11085,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533236735}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.9586957, w: 0.2844338}
-  m_LocalPosition: {x: 0.3, y: -0.29, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9402881, w: 0.3403795}
+  m_LocalPosition: {x: 1.14, y: -0.29, z: 0}
   m_LocalScale: {x: 3.62383, y: 1.235329, z: 1.1503}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329737573}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -146.95}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -140.2}
 --- !u!70 &1533236737
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11124,8 +11124,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.20913914, y: -0.09942194}
-  m_Size: {x: 0.35972792, y: 3.312567}
+  m_Offset: {x: -0.08235397, y: -0.39396626}
+  m_Size: {x: 0.6647143, y: 3.2499638}
   m_Direction: 0
 --- !u!1 &1600965387
 GameObject:

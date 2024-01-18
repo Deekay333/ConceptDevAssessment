@@ -17,7 +17,7 @@ public class CoalScript : MonoBehaviour
     {
         if(collision.transform.tag == "Pickaxe")
         {
-            transform.localScale = new Vector2(transform.localScale.x * 0.8f, transform.localScale.y * 0.8f);
+            transform.localScale = new Vector3(transform.localScale.x * 0.8f, transform.localScale.y * 0.8f, transform.localScale.z * 0.8f);
             health--;
             if(health <= 0)
             {
@@ -40,12 +40,12 @@ public class CoalScript : MonoBehaviour
         {
             if(destroyed == true)
             {
-                GameObject fragment = Instantiate(coalFragment, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
+                GameObject fragment = Instantiate(coalFragment, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f), 4.97f), Quaternion.identity);
                 fragment.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-3f, 5f), Random.Range(0f, 6f));
             }
             else
             {
-                GameObject fragment = Instantiate(coalFragment, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
+                GameObject fragment = Instantiate(coalFragment, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f), 4.97f), Quaternion.identity);
                 fragment.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-2f, 2f) + direction.x * 3, Random.Range(0f, 6f));
             }
             amount--;

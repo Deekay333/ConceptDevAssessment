@@ -224,11 +224,13 @@ public class PlayerScript : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            bodyCollider.size = new Vector2(originalColliderSize.x, 0.5f * originalColliderSize.y);
+            bodyCollider.size = new Vector2(originalColliderSize.x, 0.41f * originalColliderSize.y);
+            anim.SetBool("isCrawling", true);
         }
         else
         {
             bodyCollider.size = originalColliderSize;
+            anim.SetBool("isCrawling", false);
         }
         anim.SetFloat("verticalVelo", rb.velocity.y);
     }
