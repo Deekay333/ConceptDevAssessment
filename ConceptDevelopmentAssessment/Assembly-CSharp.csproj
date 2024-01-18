@@ -350,14 +350,14 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -785,13 +785,13 @@
       <Project>{5E91156B-72CD-EA70-3E4E-253CE47EF06F}</Project>
       <Name>Unity.Burst.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Animation.Rigging.Editor.csproj">
-      <Project>{54EC15B9-503D-95E1-E431-84F4FFA31098}</Project>
-      <Name>Unity.Animation.Rigging.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Path.Editor.csproj">
       <Project>{E9CBD331-092F-AF2D-BD99-EC52BEF3C59E}</Project>
       <Name>Unity.2D.Common.Path.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Animation.Rigging.Editor.csproj">
+      <Project>{54EC15B9-503D-95E1-E431-84F4FFA31098}</Project>
+      <Name>Unity.Animation.Rigging.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.PixelPerfect.Editor.csproj">
       <Project>{EAD8B791-B5AC-09D1-BF50-171B5EE9D0A1}</Project>
@@ -841,13 +841,13 @@
       <Project>{F9EB97C4-684E-9976-971F-2298A8A84C17}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Formats.Fbx.Editor.csproj">
-      <Project>{4A9CD194-8573-F10E-CA04-5F590B1BD1C7}</Project>
-      <Name>Unity.Formats.Fbx.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.Collections.csproj">
       <Project>{AB79040E-A387-7E56-A143-953566210F0D}</Project>
       <Name>Unity.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Formats.Fbx.Editor.csproj">
+      <Project>{4A9CD194-8573-F10E-CA04-5F590B1BD1C7}</Project>
+      <Name>Unity.Formats.Fbx.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{E88DE410-C2F2-93C3-52FF-29959C00672C}</Project>
@@ -921,6 +921,10 @@
       <Project>{F057920D-DDF1-FE95-AF3A-FC69C1A17074}</Project>
       <Name>Unity.VisualScripting.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
+      <Project>{76935B35-1CD3-F804-7168-AA5A5B2C5EF8}</Project>
+      <Name>Unity.2D.Animation.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
       <Project>{30591A1E-0F6B-6E26-7C61-4C07B0F2C30D}</Project>
       <Name>Unity.2D.Tilemap.Extras</Name>
@@ -928,10 +932,6 @@
     <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj">
       <Project>{EAA0B980-F851-BFCD-8F2B-8CDDC3A7E643}</Project>
       <Name>Unity.VisualScripting.Core.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
-      <Project>{76935B35-1CD3-F804-7168-AA5A5B2C5EF8}</Project>
-      <Name>Unity.2D.Animation.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEditorBridge.005.csproj">
       <Project>{1EBE76DC-2A00-5AF1-19D4-291B74C65F0B}</Project>
@@ -957,10 +957,6 @@
       <Project>{37FD1A5A-E617-2FEB-F985-A49E96CD19BB}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.InputSystem.ForUI.csproj">
-      <Project>{532758F7-443C-458F-9C29-73AED3A7E5EE}</Project>
-      <Name>Unity.InputSystem.ForUI</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.csproj">
       <Project>{E8346CAB-F237-3496-E49C-57561AD5F452}</Project>
       <Name>Unity.InputSystem</Name>
@@ -968,6 +964,10 @@
     <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
       <Project>{427CAB1B-3CA9-CFD8-285C-CA883702D303}</Project>
       <Name>Unity.ProBuilder.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.InputSystem.ForUI.csproj">
+      <Project>{532758F7-443C-458F-9C29-73AED3A7E5EE}</Project>
+      <Name>Unity.InputSystem.ForUI</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
       <Project>{0DF68B2E-A53C-8784-A698-81EF05801764}</Project>
