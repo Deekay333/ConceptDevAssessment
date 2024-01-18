@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class WaterLevel : MonoBehaviour
@@ -9,11 +10,10 @@ public class WaterLevel : MonoBehaviour
     private float elapsedTime = 0f;
 
     // Player timer
-    private float playerTimer = 0f;
+    public float playerTimer = 0f;
     private bool playerInWater = false;
 
     private LanternSpawner lanternSpawner; // Reference to the LanternSpawner script
-
     void Start()
     {
         // Find the LanternSpawner script in the scene
@@ -43,43 +43,13 @@ public class WaterLevel : MonoBehaviour
                 playerTimer += Time.deltaTime;
 
                 // Check if player has been in the water for more than 10 seconds
-                if (playerTimer >= 10f)
+                if (playerTimer >= 4f)
                 {
-                    // Destroy the player object
-                    DestroyPlayer();
+                    // Makes the player take damage
+                    GameObject.FindWithTag("Player").GetComponent<PlayerScript>().health -= 1;
+                    playerTimer = 0f;
                 }
             }
         }
-    }
-
-    // Called when the player enters the water
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // Initialize player in water
-            playerInWater = true;
-            playerTimer = 0f;
-        }
-    }
-
-    // Called when the player exits the water
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // Reset player in water state
-            playerInWater = false;
-            playerTimer = 0f;
-
-
-        }
-    }
-
-    // Destroy the player object
-    private void DestroyPlayer()
-    {
-        // Destroy player object
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
     }
 }

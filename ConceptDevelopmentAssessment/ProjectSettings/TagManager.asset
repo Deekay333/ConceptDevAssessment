@@ -4,8 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Lantern
+  - Pickaxe
+  - Coal
+  - Iron
+  - Upgrade
   - Water
+  - Lantern
+  - Spike
+  - Nose
+  - GameOver
   layers:
   - Default
   - TransparentFX
@@ -13,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Post Processing
+  - 
   - 
   - 
   - 

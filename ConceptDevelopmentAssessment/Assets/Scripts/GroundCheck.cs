@@ -8,6 +8,7 @@ public class GroundCheck : MonoBehaviour
     public GameObject Player;
     Vector2 velocity;
     public float direction;
+    private new string tag;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -19,11 +20,11 @@ public class GroundCheck : MonoBehaviour
     void Update()
     {
         direction = Player.GetComponent<PlayerScript>().direction;
-        Debug.Log(direction);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Player")
+        tag = collision.gameObject.tag;
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Iron" && collision.gameObject.tag != "Coal")
         {
             Grounded = true;
             Player.GetComponent<PlayerScript>().GroundCheck = Grounded;
@@ -44,6 +45,5 @@ public class GroundCheck : MonoBehaviour
                 Player.GetComponent<Rigidbody2D>().velocity = new Vector2(5.99f, Player.GetComponent<Rigidbody2D>().velocity.y);
             }
         }
-
     }
 }
