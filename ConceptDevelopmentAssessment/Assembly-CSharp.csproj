@@ -73,11 +73,11 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\LanternCollector.cs" />
     <Compile Include="Assets\Scripts\IntroScript.cs" />
-    <Compile Include="Assets\Scripts\CoalSpawner.cs" />
     <Compile Include="Assets\Scripts\Water Level.cs" />
     <Compile Include="Assets\Scripts\GroundCheck.cs" />
     <Compile Include="Assets\Scripts\CamMov.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
+    <Compile Include="Assets\Scripts\BaseSpawner.cs" />
     <Compile Include="Assets\Scripts\CoalScript.cs" />
   </ItemGroup>
   <ItemGroup>

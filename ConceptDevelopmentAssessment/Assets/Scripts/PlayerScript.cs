@@ -7,48 +7,51 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class PlayerScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    [Header("Character")]
     public int health = 3;
+    public TMP_Text coalScoreText;
+    public TMP_Text ironScoreText;
+    public TMP_Text healthText; // Reference to the Text Mesh Pro UI Text element
+    private Rigidbody2D rb;
     private GameManager gameManager;
+    private int coalScore = 0; // Player's coal score
+    private BoxCollider2D Collider;
+    private Animator anim;
+
     [Header("Movement")]
     public bool GroundCheck;
-    private float movX;
-    private float movY;
     public float groundedSpeed = 1f;
+    public float speed;
     private Vector2 movementVector;
     private Vector2 mov;
-    public float speed;
 
     [Header("Jumping")]
-    //public float jumpSpeed;
-    //public float jumpHeight;
-
     public float jumpSpeed;
     public float jumpHeight;
+    public float gravLow;
+    public float gravHigh;
+    public float direction;
+    public float time;
+    public float time2;
     private float i;
     private float j = 1;
     private float timer;
-    private BoxCollider2D Collider;
-    public float gravLow;
-    public float gravHigh;
     private bool jump = false;
-    public float direction;
-    private Animator anim;
-    public float time;
-    public float time2;
-    private bool swung;
-    private GameObject pickaxe;
-    private CapsuleCollider2D pickaxeCollider;
-    public float coal;
-    public float iron;
-    public GameObject text;
-    public bool hit;
 
     [Header("Crouching")]
-
     private Transform bodyTransform;
     private BoxCollider2D bodyCollider;
     private Vector2 originalColliderSize;
+
+    [Header("Mining")]
+    public float iron;
+    public float coal;
+    public GameObject ironText;
+    public bool hit;
+    public GameObject pickaxe; // Assuming you meant GameObject pickaxe instead of private GameObject pickaxe
+    private CapsuleCollider2D pickaxeCollider;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,8 @@ public class PlayerScript : MonoBehaviour
         bodyCollider = bodyTransform.GetComponent<BoxCollider2D>();
 
         originalColliderSize = bodyCollider.size;
+
+        UpdateHealthText();
     }
 
     // Update is called once per frame
@@ -78,9 +83,9 @@ public class PlayerScript : MonoBehaviour
         direction = movementVector.x;
         i += Time.fixedDeltaTime;
         j += Time.fixedDeltaTime;
-        if(iron == 3)
+        if (iron == 3)
         {
-            text.SetActive(true);
+            ironText.SetActive(true);
         }
         if (GroundCheck == false)
         {
@@ -157,14 +162,14 @@ public class PlayerScript : MonoBehaviour
     }*/
     private void Update()
     {
-        if(hit && health > 1)
+        if (hit && health > 1)
         {
             health--;
             anim.SetBool("isDamaged", true);
             hit = false;
             time2 = 0.4f;
         }
-        else if(hit && health <= 1)
+        else if (hit && health <= 1)
         {
             health--;
             anim.SetBool("isDead", true);
@@ -172,7 +177,7 @@ public class PlayerScript : MonoBehaviour
             gameManager.EndGame();
             this.GetComponent<PlayerScript>().enabled = false;
         }
-        else if(time2 <= 0)
+        else if (time2 <= 0)
         {
             anim.SetBool("isDamaged", false);
         }
@@ -207,7 +212,7 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("isSwinging", true);
             movementVector.x = 0;
         }
-        else if(!Input.GetKeyDown(KeyCode.Mouse0))
+        else if (!Input.GetKeyDown(KeyCode.Mouse0))
         {
             anim.SetBool("isSwinging", false);
         }
@@ -229,19 +234,19 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, -12);
         }
-        if(rb.velocity.x > 0 || movementVector.x > 0 || rb.velocity.x < 0 || movementVector.x < 0)
+        if (rb.velocity.x > 0 || movementVector.x > 0 || rb.velocity.x < 0 || movementVector.x < 0)
         {
             anim.SetBool("isRunning", true);
         }
-        if(movementVector.x < 0)
+        if (movementVector.x < 0)
         {
             transform.localScale = new Vector3(-1.06f, 1.06f, 1.06f);
         }
-        else if(movementVector.x > 0)
+        else if (movementVector.x > 0)
         {
             transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
         }
-        else if(rb.velocity.x == 0 && movementVector.x == 0)
+        else if (rb.velocity.x == 0 && movementVector.x == 0)
         {
             anim.SetBool("isRunning", false);
         }
@@ -256,11 +261,32 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("isCrawling", false);
         }
         anim.SetFloat("verticalVelo", rb.velocity.y);
+
+        // Update coal and iron score text
+        coalScoreText.text = "Coal: " + coalScore;
+        ironScoreText.text = "Iron: " + iron;
     }
     IEnumerator coyoteTime()
     {
         yield return new WaitForSeconds(0.02f);
         rb.velocity = (new Vector2(0, 0));
         jump = true;
+    }
+
+    void UpdateHealthText()
+    {
+        // Update the Text Mesh Pro UI Text element with the current score
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + health;
+        }
+    }
+
+    public void AddCoalScore()
+    {
+        coalScore++;
+        Debug.Log("Coal score increased! Current Coal Score: " + coalScore);
+
+        // You can add any additional logic or UI updates related to the coal score increase here
     }
 }
