@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class BaseSpawner : MonoBehaviour
 {
@@ -11,15 +9,11 @@ public class BaseSpawner : MonoBehaviour
 
     [Range(0f, 1f)]
     public float spawnChance = 0.5f; // Adjust the spawn chance in the Unity editor
-
     private int playerScore = 0; // Player's score
-
-    public TMP_Text scoreText; // Reference to the Text Mesh Pro UI Text element
 
     void Start()
     {
         SpawnCollectible();
-        UpdateScoreText();
     }
 
     void SpawnCollectible()
@@ -42,16 +36,7 @@ public class BaseSpawner : MonoBehaviour
     public void Collect()
     {
         playerScore++;
-        UpdateScoreText();
         Debug.Log("Collectible collected! Score: " + playerScore);
-    }
-
-    void UpdateScoreText()
-    {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + playerScore;
-        }
     }
 }
 
